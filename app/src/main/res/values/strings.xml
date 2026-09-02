@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">입찰매니저</string>
+    <string name="app_name">승강기 알림앱</string>
     <string name="launch_url">https://app-3772mr.v2.appdeploy.ai/</string>
 </resources>
