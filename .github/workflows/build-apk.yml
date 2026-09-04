@@ -26,19 +26,19 @@ jobs:
       - name: Build installable APK
         run: gradle --no-daemon :app:assembleDebug
       - name: Prepare APK
-        run: cp app/build/outputs/apk/debug/app-debug.apk elevator-bid-manager.apk
+        run: cp app/build/outputs/apk/debug/app-debug.apk elevator-bid-manager-v2.apk
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: elevator-bid-manager-apk
-          path: elevator-bid-manager.apk
+          name: elevator-bid-manager-v2-apk
+          path: elevator-bid-manager-v2.apk
           retention-days: 30
       - name: Publish direct APK download
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release view v1.0.0 >/dev/null 2>&1; then
-            gh release upload v1.0.0 elevator-bid-manager.apk --clobber
+          if gh release view v2.0.0 >/dev/null 2>&1; then
+            gh release upload v2.0.0 elevator-bid-manager-v2.apk --clobber
           else
-            gh release create v1.0.0 elevator-bid-manager.apk --title "입찰매니저 Android 앱" --notes "휴대폰에서 APK를 내려받아 설치하세요."
+            gh release create v2.0.0 elevator-bid-manager-v2.apk --title "승강기 입찰매니저 2.0" --notes "전체 기능과 새 아이콘이 적용된 설치용 APK입니다."
           fi
